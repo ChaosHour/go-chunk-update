@@ -43,6 +43,15 @@ check_docker() {
 # Start MySQL containers
 start_mysql() {
     log_info "Starting MySQL 8 containers..."
+
+    if [ ! -d "$DOCKER_DIR" ]; then
+        log_error "Docker directory not found: $DOCKER_DIR"
+        log_error "Current directory: $(pwd)"
+        log_error "Project root: $PROJECT_ROOT"
+        ls -la "$PROJECT_ROOT" || true
+        exit 1
+    fi
+
     cd "$DOCKER_DIR"
 
     # Create .env file if it doesn't exist

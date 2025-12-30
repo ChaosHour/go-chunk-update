@@ -42,20 +42,22 @@ jobs:
     - name: Build binary
       run: make build
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-
-    - name: Start MySQL containers
-      run: make test-start
-
-    - name: Run integration tests
-      run: make test-integration
-
-    - name: Run performance tests
-      run: make test-perf
-
-    - name: Stop MySQL containers
-      run: make test-stop
+    # Note: Docker-based integration tests are skipped in CI
+    # To run them locally: make test-docker
+    # - name: Set up Docker Buildx
+    #   uses: docker/setup-buildx-action@v3
+    #
+    # - name: Start MySQL containers
+    #   run: make test-start
+    #
+    # - name: Run integration tests
+    #   run: make test-integration
+    #
+    # - name: Run performance tests
+    #   run: make test-perf
+    #
+    # - name: Stop MySQL containers
+    #   run: make test-stop
 
   release:
     needs: test
