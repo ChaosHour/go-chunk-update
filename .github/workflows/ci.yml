@@ -17,7 +17,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.21'
+        go-version: '1.25'
 
     - name: Cache Go modules
       uses: actions/cache@v3
@@ -31,9 +31,10 @@ jobs:
       run: go mod download
 
     - name: Run linter
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v4
       with:
         version: latest
+        args: --timeout=5m
 
     - name: Run unit tests
       run: make test-unit
@@ -70,7 +71,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.21'
+        go-version: '1.25'
 
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v5

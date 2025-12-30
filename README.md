@@ -39,7 +39,7 @@ go build -o go-chunk-update ./cmd/chunk
 ### Using Go Install
 
 ```bash
-go install github.com/yourusername/go-chunk-update/cmd/chunk@latest
+go install github.com/ChaosHour/go-chunk-update/cmd/chunk@latest
 ```
 
 ## Usage
