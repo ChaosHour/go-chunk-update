@@ -1,0 +1,52 @@
+# Build customization
+builds:
+  - main: ./cmd/chunk
+    binary: go-chunk-update
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+      - -X main.commit={{.Commit}}
+      - -X main.date={{.Date}}
+
+# Archive customization
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
+
+# Checksum customization
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+
+# Changelog customization
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+
+# Release customization
+release:
+  github:
+    owner: openark
+    name: go-chunk-update
+  draft: false
+  prerelease: auto
