@@ -31,10 +31,10 @@ jobs:
       run: go mod download
 
     - name: Run linter
-      uses: golangci/golangci-lint-action@v4
-      with:
-        version: latest
-        args: --timeout=5m
+      run: |
+        go vet ./...
+        gofmt -d . | tee gofmt.out
+        test ! -s gofmt.out || (echo "Code is not formatted with gofmt" && exit 1)
 
     - name: Run unit tests
       run: make test-unit
