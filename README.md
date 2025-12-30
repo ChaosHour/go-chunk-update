@@ -232,4 +232,4 @@ Shlomi Noach is an inspiration and an amazing engineer whose work on openarkkit 
 
 ## License
 
-This project is released under the BSD 3-Clause License, same as the original openarkkit project. See [LICENSE](doc/LICENSE) for details.
+This project is released under the BSD 3-Clause License, same as the original openarkkit project. See [LICENSE](LICENSE) for details.
