@@ -46,7 +46,7 @@ changelog:
 # Release customization
 release:
   github:
-    owner: openark
+    owner: ChaosHour
     name: go-chunk-update
   draft: false
   prerelease: auto
