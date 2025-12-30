@@ -42,6 +42,20 @@ go build -o go-chunk-update ./cmd/chunk
 go install github.com/ChaosHour/go-chunk-update/cmd/chunk@latest
 ```
 
+### Releases
+
+Pre-built binaries are available for each [release](https://github.com/ChaosHour/go-chunk-update/releases). Download the appropriate binary for your platform:
+
+- **macOS (Intel/Apple Silicon)**: `go-chunk-update_Darwin_x86_64.tar.gz` / `go-chunk-update_Darwin_arm64.tar.gz`
+- **Linux (Intel/ARM64)**: `go-chunk-update_Linux_x86_64.tar.gz` / `go-chunk-update_Linux_arm64.tar.gz`
+
+To create a new release:
+
+```bash
+git tag v1.0.0  # Create a new version tag
+git push origin v1.0.0  # Push tag to trigger automated release
+```
+
 ## Usage
 
 ```bash
