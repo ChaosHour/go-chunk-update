@@ -2,6 +2,15 @@
 
 A Go port of the `oak-chunk-update` tool from the openarkkit suite, designed to safely execute large UPDATE, DELETE, and INSERT...SELECT operations by breaking them into manageable chunks.
 
+## ⚠️ **Warning: Beta Software**
+
+**This tool is currently in beta and may not be production-ready.** While it has been tested with various scenarios, it has not undergone extensive production testing. Use at your own risk, especially in production environments.
+
+- **Backup your data** before using this tool
+- **Test thoroughly** in a development environment first
+- **Monitor performance** and resource usage during operations
+- **Report any issues** to help improve the tool
+
 ## Overview
 
 This tool helps prevent database performance issues and timeouts when executing large-scale data operations on MySQL tables. Instead of running a single massive query that could lock tables for extended periods or consume excessive resources, it processes the data in configurable chunks.
