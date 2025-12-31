@@ -1,6 +1,6 @@
 # go-chunk-update
 
-A Go port of the `oak-chunk-update` tool from the openarkkit suite, designed to safely execute large UPDATE, DELETE, and INSERT...SELECT operations by breaking them into manageable chunks.
+A Go port of the `oak-chunk-update` tool from the openarkkit suite, designed to safely execute large UPDATE, DELETE, and INSERT operations by breaking them into manageable chunks.
 
 ## ⚠️ **Warning: Beta Software**
 
@@ -28,7 +28,7 @@ The original `oak-chunk-update` was written in Python as part of the openarkkit 
 ## Features
 
 - **Chunked Operations**: Process large datasets in configurable chunks
-- **Multiple Query Types**: Supports UPDATE, DELETE, and INSERT...SELECT operations
+- **Multiple Query Types**: Supports UPDATE, DELETE, and INSERT operations
 - **Flexible Chunking**: Auto-detects unique keys or allows manual specification
 - **Performance Controls**: Configurable sleep intervals and ratios
 - **Safety Features**: Table locking, transaction handling, and error recovery
@@ -107,7 +107,7 @@ go-chunk-update -e "UPDATE large_table SET processed=1 WHERE GO_CHUNK(large_tabl
 # Delete operation
 go-chunk-update -e "DELETE FROM old_records WHERE GO_CHUNK(old_records) AND created_at < '2020-01-01'" -d mydb
 
-# Insert-select operation
+# Insert operation (chunks the source table selection)
 go-chunk-update -e "INSERT INTO archive SELECT * FROM active_data WHERE GO_CHUNK(active_data)" -d mydb
 ```
 
